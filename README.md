@@ -1,4 +1,4 @@
-# Woocommerce Payment Gateway for Hong Kong Faster Payment Syste (FPS)
+# Woocommerce Payment Gateway for Hong Kong Faster Payment System (FPS)
 
 Woocommerce Payment Gateway for [Hong Kong FPS](https://www.hkma.gov.hk/eng/key-functions/international-financial-centre/financial-market-infrastructure/faster-payment-system-fps/). 
 
