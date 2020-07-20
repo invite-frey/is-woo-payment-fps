@@ -21,7 +21,7 @@ Features:
 $ git clone https://github.com/invite-frey/is-woo-payment-fps.git
 ```
 
-* Move the woocommerce-appointments-event-picker directory to your wordpress plugins directory.
+* Move the is-woo-payment-fps directory to your wordpress plugins directory.
 * Activate the plugin from the Wordpress admin plugins section.
 * Configure your FPS account details in Woocommerce -> Settings -> Payments -> Hong Kong Faster Payment System (FPS).
 * Enable the Payment Gateway.
