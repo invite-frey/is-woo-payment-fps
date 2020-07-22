@@ -140,13 +140,14 @@ if( !class_exists('WC_Gateway_Invite_FPS_Payment_Gateway') ){
     
             $fps_ref_string = $wp->query_vars['order-pay'] ?? $this->random_strings(5);
             $fps_data = $this->fps_data($fps_ref_string);
-            $fps_data['currency'] = $fps_data['curr'];
-            $qrcode = new ITS_FPS_QRCodeData($fps_data);
-    
+        
             if( !$fps_data ){
                 echo __("This payment method is only available for HKD payments",ITS_WPF_PLUGIN_ID);
                 return;
             }
+
+            $fps_data['currency'] = $fps_data['curr'];
+            $qrcode = new ITS_FPS_QRCodeData($fps_data);
     
             $qr_code_url = add_query_arg(
                 '_wpnonce',
