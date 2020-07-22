@@ -151,7 +151,7 @@ if( !class_exists('WC_Gateway_Invite_FPS_Payment_Gateway') ){
             $qr_code_url = add_query_arg(
                 '_wpnonce',
                 wp_create_nonce(ITS_WPF_PLUGIN_ID),
-                plugins_url('fps-qrcode.php', __FILE__)  . '?generate_fps_qrcode=' . urlencode($qrcode->getDataString())                
+                get_site_url() . '/?generate_fps_qrcode=' . urlencode($qrcode->getDataString())                
             );
 
             if ( $this->description ) {
