@@ -21,10 +21,10 @@ Features:
 $ git clone https://github.com/invite-frey/is-woo-payment-fps.git
 ```
 
-* Move the is-woo-payment-fps directory to your wordpress plugins directory.
-* Activate the plugin from the Wordpress admin plugins section.
-* Configure your FPS account details in Woocommerce -> Settings -> Payments -> Hong Kong Faster Payment System (FPS).
-* Enable the Payment Gateway.
+1. Move the is-woo-payment-fps directory to your wordpress plugins directory.
+2. Activate the plugin from the Wordpress admin plugins section.
+3. Configure your FPS account details in Woocommerce -> Settings -> Payments -> Hong Kong Faster Payment System (FPS).
+4. Enable the Payment Gateway.
 
 ### Configuration
 
