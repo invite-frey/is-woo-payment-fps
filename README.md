@@ -39,7 +39,8 @@ $ git clone https://github.com/invite-frey/is-woo-payment-fps.git
 
 ## Versioning
 
-* 1.0 - First Release
+# 1.0
+* First Release
 
 ## Donations
 
