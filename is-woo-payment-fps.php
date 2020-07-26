@@ -10,7 +10,7 @@ Description: Woocommerce payment method enabling Hong Kong FPS payments. Display
 Author: Frey Mansikkaniemi, invITe Services
 Version: 1.0
 Author URI: http://frey.hk/
-License: MIT
+License: LGPL 3
 */
 
 if (!defined('ABSPATH')) {

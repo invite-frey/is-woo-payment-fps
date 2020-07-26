@@ -49,4 +49,4 @@ Donations are much appreciated if you found this resource useful.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the LGPL 3 License - see the [LICENSE.md](LICENSE.md) file for details
