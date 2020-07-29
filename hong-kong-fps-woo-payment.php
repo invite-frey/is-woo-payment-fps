@@ -77,7 +77,7 @@ function its_wpf_qrcode_catch()
         ob_clean(); //Clean the output buffer before printing out image
         require_once('libs/phpqrcode.php');
         header('Content-Type: image/png');        
-        QRcode::png($qrcode_string);
+        QRcode::png($qrcode_string,false,QR_ECLEVEL_H);
         exit();
     }
 }
