@@ -42,6 +42,10 @@ $ git clone https://github.com/invite-frey/is-woo-payment-fps.git
 # 1.0
 * First Release
 
+# 1.1
+* QR Code quality improved
+* Mobile phonen number format example included
+
 ## Donations
 
 Donations are much appreciated if you found this resource useful. 
