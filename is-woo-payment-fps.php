@@ -1,11 +1,11 @@
 <?php 
 /**
- * @package Woo_Payment_FPS
+ * @package Woo_Payment_Hong_Kong_FPS
  * @version 1.0
  */
 /*
-Plugin Name: Woo Payment FPS
-Plugin URI: http://invite.hk/
+Plugin Name: Woo Payment Hong Kong FPS
+Plugin URI: https://github.com/invite-frey/is-woo-payment-fps
 Description: Woocommerce payment method enabling Hong Kong FPS payments. Displays QR code and FPS payent if to user. Requires manual confirmation.
 Author: Frey Mansikkaniemi, invITe Services
 Version: 1.0
