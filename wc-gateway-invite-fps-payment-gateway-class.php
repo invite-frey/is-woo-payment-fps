@@ -63,7 +63,7 @@ if( !class_exists('WC_Gateway_Invite_FPS_Payment_Gateway') ){
                 'account_fps_id' => array(
                     'title'       => __('Account Id',ITS_WPF_PLUGIN_ID),
                     'type'        => 'text',
-                    'description' => __('E-mail address, phone number or specific FPS id',ITS_WPF_PLUGIN_ID),
+                    'description' => __('E-mail address, phone number (+852-xxxxxxxx) or specific FPS id',ITS_WPF_PLUGIN_ID),
                 ),
                 'account_bank_code' => array(
                     'title'       => __('Bank Code',ITS_WPF_PLUGIN_ID),
