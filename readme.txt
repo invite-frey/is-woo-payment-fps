@@ -45,9 +45,9 @@ Enables [FPS](https://www.hkma.gov.hk/eng/key-functions/international-financial-
 
 == Changelog ==
 
-=== 1.0 ===
+= 1.0 =
 * First Release
 
-=== 1.1 ===
+= 1.1 =
 * QR Code quality improved
 * Mobile phonen number format example included
