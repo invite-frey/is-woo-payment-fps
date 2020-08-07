@@ -1,6 +1,6 @@
 === Hong Kong FPS Woo Payment ===
 Tags: woocommerce, payment, fps, hong kong, faster payment system
-Donate link: https://tippin.me/@freyhk
+Donate link: https://frey.hk/#donations
 Requires at least: 4.0
 Tested up to: 5.4.2
 Requires PHP: 7.0
