@@ -68,7 +68,7 @@ if( !class_exists('WC_Gateway_Invite_FPS_Payment_Gateway') ){
                 'account_bank_code' => array(
                     'title'       => __('Bank Code',ITS_WPF_PLUGIN_ID),
                     'type'        => 'text',
-                    'description' => __('Three number Hong Kong bank code.',ITS_WPF_PLUGIN_ID)
+                    'description' => __('Three digit Hong Kong bank code.',ITS_WPF_PLUGIN_ID)
                 ),
                 'fps_payment_reference_guide' => array(
                     'title'       => __('Payment Reference Guide',ITS_WPF_PLUGIN_ID),
@@ -84,6 +84,77 @@ if( !class_exists('WC_Gateway_Invite_FPS_Payment_Gateway') ){
                     'default'     => 'no'
                 ),
             );
+        }
+
+        public function validate_text_field($key, $value){
+
+            switch($key){
+                
+                case 'account_fps_id':
+                    $fps_id = trim($value);
+
+                    switch($this->account_id_type){
+                        case '03':
+                            if( preg_match('/^\+852\-[0-9]{8}$/', $fps_id) ){
+                                return $fps_id;
+                            }else{
+                                function my_error_notice() {
+                                    ?>
+                                    <div class="error notice">
+                                        <p><?php _e( 'The account id must be a HK phone number formatted: +852-xxxxxxxx.', ITS_WPF_PLUGIN_ID ); ?></p>
+                                    </div>
+                                    <?php
+                                }
+                                add_action( 'admin_notices', 'my_error_notice' );
+                                return $this->account_fps_id;
+                            }
+                            break;
+                        case '04':
+                            
+                            if( preg_match('/^(?!(?:(?:\x22?\x5C[\x00-\x7E]\x22?)|(?:\x22?[^\x5C\x22]\x22?)){255,})(?!(?:(?:\x22?\x5C[\x00-\x7E]\x22?)|(?:\x22?[^\x5C\x22]\x22?)){65,}@)(?:(?:[\x21\x23-\x27\x2A\x2B\x2D\x2F-\x39\x3D\x3F\x5E-\x7E]+)|(?:\x22(?:[\x01-\x08\x0B\x0C\x0E-\x1F\x21\x23-\x5B\x5D-\x7F]|(?:\x5C[\x00-\x7F]))*\x22))(?:\.(?:(?:[\x21\x23-\x27\x2A\x2B\x2D\x2F-\x39\x3D\x3F\x5E-\x7E]+)|(?:\x22(?:[\x01-\x08\x0B\x0C\x0E-\x1F\x21\x23-\x5B\x5D-\x7F]|(?:\x5C[\x00-\x7F]))*\x22)))*@(?:(?:(?!.*[^.]{64,})(?:(?:(?:xn--)?[a-z0-9]+(?:-[a-z0-9]+)*\.){1,126}){1,}(?:(?:[a-z][a-z0-9]*)|(?:(?:xn--)[a-z0-9]+))(?:-[a-z0-9]+)*)|(?:\[(?:(?:IPv6:(?:(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){7})|(?:(?!(?:.*[a-f0-9][:\]]){7,})(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,5})?::(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,5})?)))|(?:(?:IPv6:(?:(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){5}:)|(?:(?!(?:.*[a-f0-9]:){5,})(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,3})?::(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,3}:)?)))?(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9]{2})|(?:[1-9]?[0-9]))(?:\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9]{2})|(?:[1-9]?[0-9]))){3}))\]))$/', $fps_id)){
+                                return $fps_id;
+                            }else{
+                                function my_error_notice() {
+                                    ?>
+                                    <div class="error notice">
+                                        <p><?php _e( 'The account id must be a valid e-mail address', ITS_WPF_PLUGIN_ID ); ?></p>
+                                    </div>
+                                    <?php
+                                }
+                                add_action( 'admin_notices', 'my_error_notice' );
+                                return $this->account_fps_id;
+                            }
+                            break;
+                        default:
+                        return parent::validate_text_field($key,$value);
+                            break;
+                    }
+
+                    break;
+                case 'account_bank_code':
+                    $account = trim($value);
+                    if( preg_match('/^[0-9]{3}$/', $account) ){
+                        return $account;
+                    }else{
+                        function my_error_notice() {
+                            ?>
+                            <div class="error notice">
+                                <p><?php _e( 'The bank code must consist of three digits, including leading zeros.', ITS_WPF_PLUGIN_ID ); ?></p>
+                            </div>
+                            <?php
+                        }
+                        add_action( 'admin_notices', 'my_error_notice' );
+                        return $this->account_bank_code;
+                    }
+                    break;
+                default:
+                    return parent::validate_text_field($key,$value);
+                    break;
+
+            }
+            
+            
+
         }
     
         private function fps_data($reference){
@@ -163,7 +234,7 @@ if( !class_exists('WC_Gateway_Invite_FPS_Payment_Gateway') ){
             
             ?>
             <div class="form-row form-row-wide">
-                FPS id: <strong><?php echo $this->account_fps_id ?></strong>
+                <?php __("FPS id:",ITS_WPF_PLUGIN_ID); ?> <strong><?php echo $this->account_fps_id ?></strong>
             </div>
     
             <?php
