@@ -112,7 +112,7 @@ if( !class_exists('WC_Gateway_Invite_FPS_Payment_Gateway') ){
                 "email"     => $this->account_id_type === "04" ? $this->account_fps_id : "",
                 "mcc"       => "0000",
                 "curr"      => $fps_currency,
-                "amount"    => '' . $this->get_order_total(),
+                "amount"    => $this->get_order_total(),
                 "reference" => $this->ask_to_pay === 'yes' ? $reference : ""
     
             );
