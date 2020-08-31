@@ -93,7 +93,7 @@ if( !class_exists('WC_Gateway_Invite_FPS_Payment_Gateway') ){
                 case 'account_fps_id':
                     $fps_id = trim($value);
 
-                    switch($this->account_id_type){
+                    switch($this->get_option( 'account_id_type' )){
                         case '03':
                             if( preg_match('/^\+852\-[0-9]{8}$/', $fps_id) ){
                                 return $fps_id;
@@ -106,6 +106,15 @@ if( !class_exists('WC_Gateway_Invite_FPS_Payment_Gateway') ){
                                     <?php
                                 }
                                 add_action( 'admin_notices', 'my_error_notice' );
+
+                                function alert_border_account_id(){
+                                    ?>
+                                    <script language="javascript">
+                                        document.querySelector('#woocommerce_its_wpf_payment_gateway_account_fps_id').style.borderColor = 'red';
+                                    </script>
+                                    <?php
+                                }
+                                add_action( 'admin_footer', 'alert_border_account_id');
                                 return $this->account_fps_id;
                             }
                             break;
@@ -122,6 +131,15 @@ if( !class_exists('WC_Gateway_Invite_FPS_Payment_Gateway') ){
                                     <?php
                                 }
                                 add_action( 'admin_notices', 'my_error_notice' );
+
+                                function alert_border_account_id(){
+                                    ?>
+                                    <script language="javascript">
+                                        document.querySelector('#woocommerce_its_wpf_payment_gateway_account_fps_id').style.borderColor = 'red';
+                                    </script>
+                                    <?php
+                                }
+                                add_action( 'admin_footer', 'alert_border_account_id');
                                 return $this->account_fps_id;
                             }
                             break;
@@ -139,11 +157,22 @@ if( !class_exists('WC_Gateway_Invite_FPS_Payment_Gateway') ){
                         function my_error_notice() {
                             ?>
                             <div class="error notice">
+                                
                                 <p><?php _e( 'The bank code must consist of three digits, including leading zeros.', ITS_WPF_PLUGIN_ID ); ?></p>
                             </div>
                             <?php
                         }
                         add_action( 'admin_notices', 'my_error_notice' );
+
+                        function alert_border_bank_code(){
+                            ?>
+                            <script language="javascript">
+                                document.querySelector('#woocommerce_its_wpf_payment_gateway_account_bank_code').style.borderColor = 'red';
+                            </script>
+                            <?php
+                        }
+                        add_action( 'admin_footer', 'alert_border_bank_code');
+
                         return $this->account_bank_code;
                     }
                     break;
