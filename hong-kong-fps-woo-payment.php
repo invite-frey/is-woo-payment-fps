@@ -74,8 +74,8 @@ function its_wpf_qrcode_catch()
     $nonce = $_REQUEST['_wpnonce'];
     if( $qrcode_string && $nonce && wp_verify_nonce( $nonce, ITS_WPF_PLUGIN_ID ) )
     {
-        ob_clean(); //Clean the output buffer before printing out image
         require_once('libs/phpqrcode.php');
+	ob_clean(); //Clean the output buffer before printing out image
         header('Content-Type: image/png');        
         QRcode::png($qrcode_string,false,QR_ECLEVEL_H);
         exit();
