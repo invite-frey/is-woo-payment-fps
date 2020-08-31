@@ -51,3 +51,6 @@ Enables [FPS](https://www.hkma.gov.hk/eng/key-functions/international-financial-
 = 1.1 =
 * QR Code quality improved
 * Mobile phonen number format example included
+
+= 1.2 =
+* Invalid QR code problems fixed
