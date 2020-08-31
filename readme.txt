@@ -54,3 +54,7 @@ Enables [FPS](https://www.hkma.gov.hk/eng/key-functions/international-financial-
 
 = 1.2 =
 * Invalid QR code problems fixed
+
+= 1.3 =
+* Output QR Code at a higher priority during WP startup
+* Form validation for the Payment Gateway settings

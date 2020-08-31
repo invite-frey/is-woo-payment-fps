@@ -49,6 +49,10 @@ $ git clone https://github.com/invite-frey/is-woo-payment-fps.git
 ### 1.2
 * Invalid QR Code problems fixed
 
+### 1.3
+* Output QR Code at a higher priority during WP startup
+* Form validation for the Payment Gateway settings
+
 ## Donations
 
 Donations are much appreciated if you found this resource useful. 
