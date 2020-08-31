@@ -52,25 +52,15 @@ function its_wpf_add_class( $methods ){
     return $methods;
 }
 
-/**
- * Reqister query var for qrcode image generation
- */
-
-add_filter( 'query_vars', 'its_wpf_qrcode_add_var' );
-function its_wpf_qrcode_add_var( $vars )
-{
-    $vars[] = 'generate_fps_qrcode';
-    return $vars;
-}
 
 /**
  * Print out qr code when the right query var is found
  */
 
-add_action( 'template_redirect', 'its_wpf_qrcode_catch', 5 );
+add_action( 'init', 'its_wpf_qrcode_catch', 0 );
 function its_wpf_qrcode_catch()
 {   
-    $qrcode_string = get_query_var( 'generate_fps_qrcode' );
+    $qrcode_string = $_REQUEST['generate_fps_qrcode'];
     $nonce = $_REQUEST['_wpnonce'];
     if( $qrcode_string && $nonce && wp_verify_nonce( $nonce, ITS_WPF_PLUGIN_ID ) )
     {
