@@ -15,7 +15,7 @@ if( !class_exists('ITS_FPS_QRCodeData') ){
         public function getDataString(){
             $msg = $this->emvString($this->data);
             $crc = $this->pad(dechex($this->crc16ccitt($msg)),4);
-            return $msg . $crc;
+            return $msg . strtoupper($crc);
         }
     
         private function pad($s, $size = 2) {
