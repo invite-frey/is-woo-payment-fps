@@ -54,6 +54,18 @@ function its_wpf_add_class( $methods ){
 
 
 /**
+ * Reqister query var for qrcode image generation
+ */
+
+add_filter( 'query_vars', 'its_wpf_qrcode_add_var' );
+function its_wpf_qrcode_add_var( $vars )
+{
+    $vars[] = 'generate_fps_qrcode';
+    $vars[] = '_wpnonce';
+    return $vars;
+}
+
+/**
  * Print out qr code when the right query var is found
  */
 
