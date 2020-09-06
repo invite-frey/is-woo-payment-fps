@@ -60,15 +60,18 @@ function its_wpf_add_class( $methods ){
 add_action( 'init', 'its_wpf_qrcode_catch', 0 );
 function its_wpf_qrcode_catch()
 {   
-    $qrcode_string = $_REQUEST['generate_fps_qrcode'];
-    $nonce = $_REQUEST['_wpnonce'];
-    if( $qrcode_string && $nonce && wp_verify_nonce( $nonce, ITS_WPF_PLUGIN_ID ) )
+    if(isset($_REQUEST['generate_fps_qrcode']) && isset($_REQUEST['_wpnonce']))
     {
-        require_once('libs/phpqrcode.php');
-	ob_clean(); //Clean the output buffer before printing out image
-        header('Content-Type: image/png');        
-        QRcode::png($qrcode_string,false,QR_ECLEVEL_H);
-        exit();
+        $qrcode_string = $_REQUEST['generate_fps_qrcode'];
+        $nonce = $_REQUEST['_wpnonce'];
+        if( $qrcode_string && $nonce && wp_verify_nonce( $nonce, ITS_WPF_PLUGIN_ID ) )
+        {
+            require_once('libs/phpqrcode.php');
+            ob_clean(); //Clean the output buffer before printing out image
+            header('Content-Type: image/png');        
+            QRcode::png($qrcode_string,false,QR_ECLEVEL_H);
+            exit();
+        }
     }
 }
 
