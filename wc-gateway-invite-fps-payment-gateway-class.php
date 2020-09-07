@@ -352,7 +352,4 @@ if( !class_exists('WC_Gateway_Invite_FPS_Payment_Gateway') ){
         } 
     }
 }
-
-
-
 ?>

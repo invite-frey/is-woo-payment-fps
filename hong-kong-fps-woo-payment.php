@@ -135,4 +135,3 @@ function its_wpf_init_fps_qrcode_class(){
 }
 
 ?>
-
