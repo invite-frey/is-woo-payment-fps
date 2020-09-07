@@ -270,7 +270,7 @@ if( !class_exists('WC_Gateway_Invite_FPS_Payment_Gateway') ){
             $qrcode = new ITS_FPS_QRCodeData($fps_data);
     
             $qr_code_url = 
-                $this->write_qr_code_to_file ? 
+                $this->write_qr_code_to_file === 'yes' ? 
                 $this->qrcode_file_url($qrcode->getDataString()) :
                 add_query_arg(
                     '_wpnonce',

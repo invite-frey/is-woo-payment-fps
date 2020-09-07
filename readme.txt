@@ -64,3 +64,6 @@ Enables [FPS](https://www.hkma.gov.hk/eng/key-functions/international-financial-
 
 = 1.4 =
 * Optional QRCode caching added
+
+= 1.41 =
+* Bugfix
