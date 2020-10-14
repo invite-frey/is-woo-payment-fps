@@ -62,6 +62,10 @@ $ git clone https://github.com/invite-frey/is-woo-payment-fps.git
 ### 1.41
 * Bugfix
 
+### 1.42
+* Cache QRCodes by default due to better compatibility with most systems
+* Fixed bug preventing headers to be output on some systems
+
 ## Donations
 
 Donations are much appreciated if you found this resource useful. 

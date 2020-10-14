@@ -67,3 +67,7 @@ Enables [FPS](https://www.hkma.gov.hk/eng/key-functions/international-financial-
 
 = 1.41 =
 * Bugfix
+
+= 1.42 =
+* Cache QRCodes by default due to better compatibility with most systems
+* Fixed bug preventing headers to be output on some systems

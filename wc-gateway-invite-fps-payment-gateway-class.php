@@ -85,11 +85,11 @@ if( !class_exists('WC_Gateway_Invite_FPS_Payment_Gateway') ){
                     'default'     => 'no'
                 ),
                 'write_qr_code_to_file' => array(
-                    'title'       => __('Write QRCode to file',ITS_WPF_PLUGIN_ID),
-                    'label'       => __('Write QRCode to file',ITS_WPF_PLUGIN_ID),
+                    'title'       => __('Cache QRCode to file',ITS_WPF_PLUGIN_ID),
+                    'label'       => __('Cache QRCode to file',ITS_WPF_PLUGIN_ID),
                     'type'        => 'checkbox',
-                    'description' => __('Enable this option if the QRCode does not show up, or if you want to cache each generated QRCode to a file for reuse. Provides better performance if the total amount is often the same.',ITS_WPF_PLUGIN_ID),
-                    'default'     => 'no'
+                    'description' => __('Disabling this option will cause the QRCode to be dynamically generated. This may not work on all server configurations.',ITS_WPF_PLUGIN_ID),
+                    'default'     => 'yes'
                 ),
             );
         }
