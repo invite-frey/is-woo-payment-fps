@@ -52,39 +52,6 @@ function its_wpf_add_class( $methods ){
     return $methods;
 }
 
-/**
- * Reqister query var for qrcode image generation
- */
-
-add_filter( 'query_vars', 'its_wpf_qrcode_add_var' );
-function its_wpf_qrcode_add_var( $vars )
-{
-    $vars[] = 'generate_fps_qrcode';
-    $vars[] = '_wpnonce';
-    return $vars;
-}
-
-/**
- * Print out qr code when the right query var is found
- */
-
-add_action( 'init', 'its_wpf_qrcode_catch', 0 );
-function its_wpf_qrcode_catch()
-{   
-    if(isset($_REQUEST['generate_fps_qrcode']) && isset($_REQUEST['_wpnonce']))
-    {
-        $qrcode_string = $_REQUEST['generate_fps_qrcode'];
-        $nonce = $_REQUEST['_wpnonce'];
-        if( $qrcode_string && $nonce && wp_verify_nonce( $nonce, ITS_WPF_PLUGIN_ID ) )
-        {
-            require_once('libs/phpqrcode.php');
-            ob_clean(); //Clean the output buffer before printing out image
-            header('Content-Type: image/png');        
-            QRcode::png($qrcode_string,false,QR_ECLEVEL_H);
-            exit();
-        }
-    }
-}
 
 /**
  * Change text on the Pay order button.

@@ -84,13 +84,6 @@ if( !class_exists('WC_Gateway_Invite_FPS_Payment_Gateway') ){
                     'description' => __('The ask to pay function must be enabled by your bank in order to use payment reference numbers.',ITS_WPF_PLUGIN_ID),
                     'default'     => 'no'
                 ),
-                'write_qr_code_to_file' => array(
-                    'title'       => __('Cache QRCode to file',ITS_WPF_PLUGIN_ID),
-                    'label'       => __('Cache QRCode to file',ITS_WPF_PLUGIN_ID),
-                    'type'        => 'checkbox',
-                    'description' => __('Disabling this option will cause the QRCode to be dynamically generated. This may not work on all server configurations.',ITS_WPF_PLUGIN_ID),
-                    'default'     => 'yes'
-                ),
             );
         }
 
@@ -269,14 +262,7 @@ if( !class_exists('WC_Gateway_Invite_FPS_Payment_Gateway') ){
             $fps_data['currency'] = $fps_data['curr'];
             $qrcode = new ITS_FPS_QRCodeData($fps_data);
     
-            $qr_code_url = 
-                $this->write_qr_code_to_file === 'yes' ? 
-                $this->qrcode_file_url($qrcode->getDataString()) :
-                add_query_arg(
-                    '_wpnonce',
-                    wp_create_nonce(ITS_WPF_PLUGIN_ID),
-                    get_site_url() . '/?generate_fps_qrcode=' . urlencode($qrcode->getDataString())                
-                );
+            $qr_code_url = $this->qrcode_file_url($qrcode->getDataString()); 
 
             if ( $this->description ) {
                 echo wpautop( wp_kses_post( $this->description ) );
