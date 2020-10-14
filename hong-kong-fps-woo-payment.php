@@ -133,5 +133,3 @@ add_action('init', 'its_wpf_init_fps_qrcode_class');
 function its_wpf_init_fps_qrcode_class(){
     require_once 'its-fps-qrcodedata-class.php';
 }
-
-?>

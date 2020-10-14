@@ -145,5 +145,3 @@ if( !class_exists('ITS_FPS_QRCodeData') ){
         }
     }
 }
-
-?>
