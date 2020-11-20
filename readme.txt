@@ -71,3 +71,7 @@ Enables [FPS](https://www.hkma.gov.hk/eng/key-functions/international-financial-
 = 1.42 =
 * QRCodes always cached to disk due to browser incompatibility issues with dynamic generation.
 * Fixed bug preventing headers to be output on some systems
+
+= 1.43 =
+* Minor bugfixes
+

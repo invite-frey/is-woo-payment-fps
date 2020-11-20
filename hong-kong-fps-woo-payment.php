@@ -1,7 +1,7 @@
 <?php 
 /**
  * @package Hong_Kong_FPS_Woo_Payment
- * @version 1.42
+ * @version 1.43
  */
 /*
 Plugin Name: Hong Kong FPS Woo Payment

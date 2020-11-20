@@ -66,6 +66,9 @@ $ git clone https://github.com/invite-frey/is-woo-payment-fps.git
 * QRCodes always cached to disk due to browser incompatibility issues with dynamic generation.
 * Fixed bug preventing headers to be output on some systems
 
+### 1.43
+* Minor bug fixes
+
 ## Donations
 
 Donations are much appreciated if you found this resource useful. 
