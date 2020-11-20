@@ -74,7 +74,7 @@ if( !class_exists('WC_Gateway_Invite_FPS_Payment_Gateway') ){
                 'fps_payment_reference_guide' => array(
                     'title'       => __('Payment Reference Guide',ITS_WPF_PLUGIN_ID),
                     'type'        => 'textarea',
-                    'default'     => __('Please input the payment reference number below after payment has been completed.',ITS_WPF_PLUGIN_ID),
+                    'default'     => __('Please use the code below as a Message to Payee when initiating the transaction in your bank\'s app.',ITS_WPF_PLUGIN_ID),
                     'description' => __('Instructions visible to the customer for providing payment reference number after payment. This is not visble of Ask to Pay is active.',ITS_WPF_PLUGIN_ID)
                 ),
                 'ask_to_pay' => array(
