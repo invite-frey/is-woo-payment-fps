@@ -59,7 +59,7 @@ function its_wpf_add_class( $methods ){
 
 add_filter('woocommerce_available_payment_gateways', 'its_wpf_pay_order_label');
 function its_wpf_pay_order_label($gateways) {
-    if($gateways[ITS_WPF_PLUGIN_ID]) {
+    if(!empty($gateways[ITS_WPF_PLUGIN_ID])) {
         $gateways[ITS_WPF_PLUGIN_ID]->order_button_text = __('Confirm FPS Payment Completed',ITS_WPF_PLUGIN_ID);
     }
     return $gateways;
