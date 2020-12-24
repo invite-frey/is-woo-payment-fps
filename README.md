@@ -69,6 +69,9 @@ $ git clone https://github.com/invite-frey/is-woo-payment-fps.git
 ### 1.43
 * Minor bug fixes
 
+### 1.44 
+* base64 encoded png qrcode
+
 ## Donations
 
 Donations are much appreciated if you found this resource useful. 
