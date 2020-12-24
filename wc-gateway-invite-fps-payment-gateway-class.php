@@ -235,16 +235,20 @@ if( !class_exists('WC_Gateway_Invite_FPS_Payment_Gateway') ){
             return $url;
         }
 
-        private function qrcode_file_url($data_string){
-            $path = plugin_dir_path( __FILE__ ) . "qrcodes/";
-            $filename =  md5($data_string) . '.png';
+        private function qrcode_img_data($data_string){
+            /**
+             * Load the PHP QRcode library
+             */
 
-            if( !file_exists($path . $filename) ){
-                require_once('libs/phpqrcode.php');  
-                QRcode::png($data_string,$path . $filename,QR_ECLEVEL_H);
+            if( !class_exists( 'QRtools' ) ){
+                require_once 'libs/phpqrcode.php';
             }
 
-            return plugin_dir_url( __FILE__ ) . "qrcodes/" . $filename;
+            $fp = fopen('php://memory','r+');
+            QRCode::png($data_string,$fp,QR_ECLEVEL_H);
+            rewind($fp);
+            $qrcode = stream_get_contents($fp);
+            return $qrcode;
         }
     
         public function payment_fields() {
@@ -262,7 +266,7 @@ if( !class_exists('WC_Gateway_Invite_FPS_Payment_Gateway') ){
             $fps_data['currency'] = $fps_data['curr'];
             $qrcode = new ITS_FPS_QRCodeData($fps_data);
     
-            $qr_code_url = $this->qrcode_file_url($qrcode->getDataString()); 
+            $qr_code_img = $this->qrcode_img_data($qrcode->getDataString());
 
             if ( $this->description ) {
                 echo wpautop( wp_kses_post( $this->description ) );
@@ -289,7 +293,7 @@ if( !class_exists('WC_Gateway_Invite_FPS_Payment_Gateway') ){
             }
             ?>
             <div class="form-row form-row-wide" style="text-align: center;">
-                <img src="<?php echo $qr_code_url?>">
+                <img style="margin: 0 auto;" src="data:image/png;base64,<?php echo base64_encode($qr_code_img); ?>" />
             </div>
     
             
