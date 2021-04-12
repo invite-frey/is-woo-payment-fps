@@ -76,9 +76,7 @@ $ git clone https://github.com/invite-frey/is-woo-payment-fps.git
 
 Donations are much appreciated if you found this resource useful. 
 
-* Bitcoin: 32AULufQ6AUzq9jKZdcLjSxfePZbsqQKEp
-* BTC Lightning via tippin.me: [https://tippin.me/@freyhk](https://tippin.me/@freyhk)
-* [Other forms of payment](https://frey.hk/#donations)
+Bitcoin, Lightning Network and most major credit cards available for donations at [https://frey.hk](https://frey.hk).
 
 ## License
 
